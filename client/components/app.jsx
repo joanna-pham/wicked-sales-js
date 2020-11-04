@@ -21,12 +21,6 @@ export default class App extends React.Component {
 
   render() {
 
-    // let message = null;
-
-    // this.state.isLoading
-    //   ? message = <h1>Testing connections...</h1>
-    //   : message = <h1>{this.state.message}</h1>;
-
     return (
 
       <div>
