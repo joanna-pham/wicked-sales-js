@@ -27,7 +27,7 @@ export default class ProductList extends React.Component {
     const productsArray = this.state.products.map((product, index) =>
       <ProductListItem
         product={product}
-        key={index}/>
+        key={index} />
     );
     return (
       <div className="main-container">
