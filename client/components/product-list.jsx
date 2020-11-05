@@ -26,8 +26,10 @@ export default class ProductList extends React.Component {
   render() {
     const productsArray = this.state.products.map((product, index) =>
       <ProductListItem
+        onClick={() => this.handleClick(product.productId)}
         product={product}
-        key={index} />
+        key={index}
+        setView={this.props.setView} />
     );
     return (
       <div className="main-container">
