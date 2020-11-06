@@ -164,6 +164,41 @@ app.post('/api/cart', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.post('/api/orders', (req, res, next) => {
+  if (!req.session.cartId) {
+    throw (new ClientError('cartId does not exist', 400));
+  }
+
+  const customerName = req.body.name;
+  const customerCard = req.body.creditCard;
+  const customerAddress = req.body.shippingAddress;
+
+  if (!customerName) {
+    throw (new ClientError("Missing customer's name", 400));
+  }
+  if (!customerCard) {
+    throw (new ClientError("Missing customer's card information", 400));
+  }
+  if (!customerAddress) {
+    throw (new ClientError("Missing customer's shipping address", 400));
+  }
+
+  const sql = `
+    insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
+      values ($1, $2, $3, $4)
+      returning *
+  `;
+
+  const values = [req.session.cartId, customerName, customerCard, customerAddress];
+
+  return db.query(sql, values)
+    .then(result => {
+      delete req.session.cartId;
+      res.status(201).json(result.rows[0]);
+    })
+    .catch(err => console.error(err));
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
