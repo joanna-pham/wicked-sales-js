@@ -14,7 +14,6 @@ export default class ProductListItem extends React.Component {
             <h5>{this.props.product.name}</h5>
             <p>{'$' + (this.props.product.price / 100).toFixed(2)}</p>
             <p>{this.props.product.shortDescription}</p>
-
           </div>
         </div>
       </div>

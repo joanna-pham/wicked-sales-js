@@ -10,7 +10,7 @@ export default class Header extends React.Component {
             <img src="/images/favicon.png" className="pr-2"></img>
             Wicked Sales
           </a>
-          <span className="items-count">
+          <span className="items-count" onClick={() => this.props.setView('cart', {})}>
             <p>{this.props.cartItemCount} items
               <i className="fas fa-shopping-cart fa-2x"></i></p>
           </span>
