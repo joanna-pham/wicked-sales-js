@@ -53,11 +53,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    // return(
-    //   <div>
-    //     <CartSummary />
-    //   </div>
-    // )
 
     if (this.state.view.name === 'catalog') {
       return (
