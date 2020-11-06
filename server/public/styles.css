@@ -35,3 +35,16 @@ h5 {
 .items-count {
   color: white
 }
+
+.summary-item-img{
+  width: 200px
+}
+
+/* .summary-container{
+  max-width: 500px
+} */
+
+.summary-item-container{
+  width: 700px;
+  max-width: 900px
+}
