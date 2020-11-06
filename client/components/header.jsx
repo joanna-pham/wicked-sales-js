@@ -1,17 +1,22 @@
 import React from 'react';
 
-function Header() {
+export default class Header extends React.Component {
 
-  return (
-    <div>
-      <nav className="navbar navbar-dark bg-dark">
-        <a className="navbar-brand" href='#'>
-          <img src="/images/favicon.png"></img>
+  render() {
+    return (
+      <div>
+        <nav className="navbar navbar-dark bg-dark">
+          <a className="navbar-brand" href='#'>
+            <img src="/images/favicon.png" className="pr-2"></img>
             Wicked Sales
-        </a>
-      </nav>
-    </div>
-  );
-}
+          </a>
+          <span className="items-count">
+            <p>{this.props.cartItemCount} items
+              <i className="fas fa-shopping-cart fa-2x"></i></p>
+          </span>
+        </nav>
+      </div>
+    );
+  }
 
-export default Header;
+}
