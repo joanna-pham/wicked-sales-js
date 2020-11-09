@@ -6,10 +6,10 @@ export default class Header extends React.Component {
     return (
       <div>
         <nav className="navbar navbar-dark bg-dark">
-          <a className="navbar-brand" href='#'>
+          <div className="navbar-brand" onClick={() => this.props.setView('catalog', {})}>
             <img src="/images/favicon.png" className="pr-2"></img>
             Wicked Sales
-          </a>
+          </div>
           <span className="items-count" onClick={() => this.props.setView('cart', {})}>
             <p>{this.props.cartItemCount} items
               <i className="fas fa-shopping-cart fa-2x"></i></p>

@@ -17,13 +17,13 @@ export default class CartSummary extends React.Component {
 
     if (this.props.cart.length === 0) {
       return (
-        <div>
+        <div className="m-4 d-flex justify-content-center flex-wrap summary-container m-auto">
           <h3>There are currently no items in your cart</h3>
         </div>
       );
     } else {
       return (
-        <div className="summary-main-container">
+        <div className="summary-main-container m-5">
           <div className="m-3">
             <div onClick={() => this.props.setView('catalog', {})}>
               {'< Back to Catalog'}
@@ -32,11 +32,14 @@ export default class CartSummary extends React.Component {
               <h2>My Cart</h2>
             </div>
           </div>
-          <div className="d-flex justify-content-center flex-wrap summary-container">
+          <div className="d-flex justify-content-center flex-wrap summary-container m-auto">
             {summaryArray}
           </div>
           <div className="d-flex">
-            <h2 className="m-3 ml-auto">{`Item Total: $${priceCheck}`}</h2>
+            <h2>{`Item Total: $${priceCheck}`}</h2>
+            <span className="ml-auto">
+              <button onClick={() => this.props.setView('checkout', {})}>Checkout</button>
+            </span>
           </div>
         </div>
       );
