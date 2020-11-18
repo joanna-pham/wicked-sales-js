@@ -46,7 +46,7 @@ export default class Modal extends React.Component {
                 <p>This website is for DEMO purposes only. It is not a functioning shop. Please do not enter in personal information such as credit card or shipping address.</p>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={() => this.setState({ showModal: false })}>Close</button>
+                <button type="button" className="btn btn-info" onClick={() => this.setState({ showModal: false })}>I Understand</button>
               </div>
             </div>
           </div>

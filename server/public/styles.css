@@ -62,7 +62,7 @@ textarea {
 }
 
 .product-item-container{
-  height: 550px;
+  height: 600px;
   background-color: white;
 }
 
@@ -219,7 +219,7 @@ textarea {
   animation-iteration-count: 1;
 }
 
-img:hover {
+.product-img:hover {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
@@ -232,6 +232,19 @@ input,
 select,
 textarea {
   width: 500px;
+}
+}
+
+@media screen and (max-width:850px){
+.header{
+  background-size: 700px;
+  height: 50vh
+}
+}
+
+@media screen and (max-width:810px){
+h5{
+  font-size: 1.00rem;
 }
 }
 

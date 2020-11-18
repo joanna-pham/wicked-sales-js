@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductListItem from './product-list-item';
+import Modal from './modal';
 
 export default class ProductList extends React.Component {
   constructor(props) {
@@ -39,6 +40,7 @@ export default class ProductList extends React.Component {
       <div className="main-container">
         <div className="row header hero-img">
         </div>
+        <Modal props={this.props.view} />
         <div className="row d-flex justify-content-center m-3">
           {productsArray}
         </div>
