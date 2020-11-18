@@ -27,24 +27,26 @@ export default class ProductDetails extends React.Component {
       return (
         <div className="main-container">
           <div className="row m-3">
-            <div onClick={this.handleClick}>
-              {'< Back to Catalog'}
+            <div className="hvr-icon-wobble-horizontal" onClick={this.handleClick}>
+              <p>
+                <i className="fas fa-arrow-left hvr-icon-wobble pr-2"></i> Back to Catalog
+              </p>
             </div>
           </div>
-          <div className="detail-container p-5">
+          <div className="detail-container p-5 card mx-5">
             <div className="row">
-              <div className="col-md-6">
+              <div className="col-md-6 d-flex justify-content-center">
                 <img src={this.state.product.image} className="detail-img"></img>
               </div>
               <div className="col-md-6">
                 <h3>{this.state.product.name}</h3>
-                <h4>{'$' + (this.state.product.price / 100).toFixed(2)}</h4>
-                <h4>{this.state.product.shortDescription}</h4>
-                <button onClick={() => this.props.addItem(this.state.product)}>Add to Cart</button>
+                <p>{'$' + (this.state.product.price / 100).toFixed(2)}</p>
+                <p>{this.state.product.shortDescription}</p>
+                <button className="btn btn-outline-dark btn-style" onClick={() => this.props.addItem(this.state.product)}>Add to Cart</button>
               </div>
             </div>
             <div className="row m-3">
-              <h4>{this.state.product.longDescription}</h4>
+              <p>{this.state.product.longDescription}</p>
             </div>
           </div>
         </div>
