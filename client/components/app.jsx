@@ -69,43 +69,27 @@ export default class App extends React.Component {
       .catch(err => console.error(err));
   }
 
+  renderSwitch(state) {
+    switch (state) {
+      case 'catalog':
+        return <ProductList setView={this.setView} view={this.state.view.name}/>;
+      case 'details':
+        return <ProductDetails addItem={this.addToCart} setView={this.setView} product={this.state.view.params.product} />;
+      case 'cart':
+        return <CartSummary cart={this.state.cart} setView={this.setView} />;
+      case 'checkout':
+        return <CheckoutForm setView={this.setView} placeOrder={this.placeOrder} cart={this.state.cart} view={this.state.view.name}/>;
+    }
+  }
+
   render() {
 
-    if (this.state.view.name === 'catalog') {
-      return (
-        <div>
-          <div>
-            <Header cartItemCount={this.state.cart.length} setView={this.setView} />
-            <ProductList setView={this.setView} />
-          </div>
-        </div>
-      );
-    }
-    if (this.state.view.name === 'details') {
-      return (
-        <div>
-          <div>
-            <Header cartItemCount={this.state.cart.length} setView={this.setView} />
-            <ProductDetails addItem={this.addToCart} setView={this.setView} product={this.state.view.params.product} />
-          </div>
-        </div>
-      );
-    }
-    if (this.state.view.name === 'cart') {
-      return (
-        <div>
-          <Header cartItemCount={this.state.cart.length} setView={this.setView} />
-          <CartSummary cart={this.state.cart} setView={this.setView} />
-        </div>
-      );
-    }
-    if (this.state.view.name === 'checkout') {
-      return (
-        <div>
-          <Header cartItemCount={this.state.cart.length} setView={this.setView} />
-          <CheckoutForm setView={this.setView} placeOrder={this.placeOrder} cart={this.state.cart}/>
-        </div>
-      );
-    }
+    return (
+      <div>
+        <Header cartItemCount={this.state.cart.length} setView={this.setView} />
+        {this.renderSwitch(this.state.view.name)}
+      </div>
+    );
+
   }
 }
