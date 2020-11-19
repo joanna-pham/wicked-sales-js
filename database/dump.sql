@@ -229,34 +229,9 @@ ALTER TABLE ONLY public.products ALTER COLUMN "productId" SET DEFAULT nextval('p
 --
 
 COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
-1	16	1	2999
-2	16	1	2999
-3	16	1	2999
-4	16	1	2999
-5	16	1	2999
-6	16	1	2999
-7	16	1	2999
-8	16	1	2999
-9	16	1	2999
-10	16	3	2900
-11	16	3	2900
-12	16	3	2900
-13	16	3	2900
-14	16	4	999
-15	16	4	999
-16	17	1	2999
-17	17	2	2595
-18	17	3	2900
-19	17	5	9900
 20	17	6	830
-21	18	2	2595
-22	19	2	2595
-23	20	2	2595
-24	21	1	2999
-25	21	2	2595
-26	22	5	9900
-27	23	3	2900
-28	23	4	999
+38	28	2	138465
+39	29	1	143500
 \.
 
 
@@ -288,6 +263,12 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 21	2020-11-08 12:42:37.624363-08
 22	2020-11-08 20:48:47.38705-08
 23	2020-11-08 21:08:16.954862-08
+24	2020-11-08 21:22:14.450537-08
+25	2020-11-16 17:53:07.6892-08
+26	2020-11-17 10:11:04.433031-08
+27	2020-11-17 14:25:02.077438-08
+28	2020-11-17 14:47:06.054471-08
+29	2020-11-18 12:49:54.24737-08
 \.
 
 
@@ -303,6 +284,9 @@ COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", 
 5	21	namename	321321321	123 street	2020-11-08 20:48:01.13726-08
 6	22	name	3219032190321	8432091 street	2020-11-08 20:56:41.155018-08
 7	23	namename	123123218942038421	123 street	2020-11-08 21:08:32.988972-08
+8	26	name	fewafd	fdwafewa	2020-11-17 13:25:52.278682-08
+9	26	namenamename	3213213	address	2020-11-17 13:26:26.717637-08
+10	27	namename	123123123	shipping	2020-11-17 14:46:07.410162-08
 \.
 
 
@@ -311,12 +295,12 @@ COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", 
 --
 
 COPY public.products ("productId", name, price, image, "shortDescription", "longDescription") FROM stdin;
-1	Shake Weight	2999	/images/shake-weight.jpg	Dynamic Inertia technology ignites muscles in arms, shoulders, and chest.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-2	ShamWow	2595	/images/shamwow.jpg	It's like a chamois, towel, and sponge, all in one! Soaks up to 10x it's weight in any liquid!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-3	Snuggie	2900	/images/snuggie.jpg	Super-Soft Fleece with pockets! One Size fits all Adults! Keeps you Warm & Your Hands-Free!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-4	Wax Vac	999	/images/wax-vac.jpg	Gentle way to remove ear wax. Safe and hygienic. Reduces the risk of painful infections.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-5	Ostrich Pillow	9900	/images/ostrich-pillow.jpg	Create your own snugly space in the world and feel-good anywhere with the ultimate cocoon pillow.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-6	Tater Mitts	830	/images/tater-mitts.jpg	8 Seconds is all you need with Tater Mitts. Quickly and easily prepare all your favorite potato dishes with Tater Mitts.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
+2	CybertronPC	138465	/images/cybertronPC.jpg	Entertain your guests with the colors of your desktop or get W's in your favorite game	CybertronPC BLU-Print Desktop: Create 3-D models and render realistic images with this Cybertron PC BLU-Print professional design workstation. Two NVIDIA Quadro RTX 6000 graphics cards make short work of creative and design tasks, and the 128GB of RAM ensures resource-efficient multitasking. This Cybertron PC BLU-Print professional design workstation has an Intel Core i9 processor that provides a responsive user experience and a 960GB SSD and 6TB hard drive that provide plenty of storage space.
+1	PlayStation 5	143500	/images/ps5.png	Explore uncharted virtual territories and slay dragons with this sleek Sony PlayStation 5 gaming console	The PS5 console unleashes new gaming possibilities that you never anticipated. Experience lightning fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback, adaptive triggers, and 3D Audio, and an all-new generation of incredible PlayStation games. Lightning Speed: Harness the power of a custom CPU, GPU, and SSD with Integrated I/O that rewrite the rules of what a PlayStation console can do. Stunning Games: Marvel at incredible graphics and experience new PS5 features. Breathtaking Immersion: Discover a deeper gaming experience with support for haptic feedback, adaptive triggers, and 3D Audio technology.
+3	Nintendo Switch: Animal Crossing Edition	46000	/images/switch.jpg	Damn, Daniel! Don't forget to water your plants with this limited edition Animal Crossing Nintendo Switch	Explore a unique world with this Nintendo Switch Animal Crossing: New Horizons Edition console. The green and blue Joy-Con controllers offer precise control and work separately for versatile options, while the white dock lets you enjoy hours of immersive gaming. With a 6.2-inch touchscreen, this Nintendo Switch Animal Crossing: New Horizons Edition console provides clear graphics and responsive performance.
+4	Xbox Series	35000	/images/xbox-series-s.jpg	You won't be able to order in a McD's drive thru but at least you can have a fun time playing your favorite games on this console	Introducing Xbox Series S. Experience the speed and performance of a next-gen all-digital console at an accessible price point. Seamlessly move between multiple games in a flash with Quick Resume. At the heart of Series S is the Xbox Velocity Architecture, which pairs a custom-SSD with integrated software for faster, streamlined gameplay with significantly reduced load times.*
+5	Nintendo 64	25000	/images/nintendo-64.png	Bring back some childhood memories of smashing your friends with your favorite smash bro character or leave a trail of bananas for the tailgater	Released in 1996, the Nintendo 64 was the first system with 64-bit graphics and built-in four player gaming potential. Masterpieces such as Super Mario 64 and Super Smash Bros helped sell over 32 million N64 systems worldwide. The Nintendo 64 commonly called the N64 , is Nintendo's third home video game console for the international market. The system comes with everything that you need to get you started. System Includes One Controller, AC Adaptor, and AV Cables
+6	Hyperx Cloud Gaming Headset	35000	/images/hyperx-headset.jpg	You kiss your mother with that mouth?! Talk smack to your enemies when they camp in a corner or let your team mates know how much you appreciate them	Upgrade your audio setup with this HyperX Cloud Orbit S gaming headset. Planar magnetic drivers deliver rich, detailed sound, and the Waves Nx head tracking and 3-D audio technologies deepen the immersion. This HyperX Cloud Orbit S gaming headset includes a detachable noise-canceling mic that blocks out background noise so teammates can hear you clearly.
 \.
 
 
@@ -324,21 +308,21 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 28, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 39, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 23, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 29, true);
 
 
 --
 -- Name: orders_orderId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."orders_orderId_seq"', 7, true);
+SELECT pg_catalog.setval('public."orders_orderId_seq"', 10, true);
 
 
 --
