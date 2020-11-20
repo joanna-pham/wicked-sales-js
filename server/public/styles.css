@@ -29,6 +29,10 @@ textarea {
   color: red;
 }
 
+.text-green{
+  color: green;
+}
+
 .icon-style{
   width: 5vh;
 }

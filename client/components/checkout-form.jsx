@@ -24,14 +24,13 @@ export default class CheckoutForm extends React.Component {
 
     if (this.state.name.length === 0) {
       this.setState({ error: true });
-    } else if (this.state.creditCard.length === 0) {
+    } else if (this.state.creditCard.length <= 15) {
       this.setState({ error: true });
     } else if (this.state.shippingAddress.length === 0) {
       this.setState({ error: true });
     } else {
       this.props.placeOrder(order);
     }
-
   }
 
   render() {
@@ -61,6 +60,10 @@ export default class CheckoutForm extends React.Component {
                 key="name"
                 required
               />
+              {this.state.name.length === 0
+                ? <i className="fas fa-times text-red ml-2"></i>
+                : <i className="fas fa-check text-green ml-2"></i>
+              }
             </div>
 
             <div className="col m-4">
@@ -74,6 +77,10 @@ export default class CheckoutForm extends React.Component {
                 key="card"
                 required
               />
+              {this.state.creditCard.length <= 15
+                ? <i className="fas fa-times text-red ml-2"></i>
+                : <i className="fas fa-check text-green ml-2"></i>
+              }
             </div>
 
             <div className="col m-4">
@@ -88,18 +95,14 @@ export default class CheckoutForm extends React.Component {
                 key="address"
                 required
               />
+              {this.state.shippingAddress.length <= 6
+                ? <i className="fas fa-times text-red ml-2"></i>
+                : <i className="fas fa-check text-green ml-2"></i>
+              }
             </div>
           </form>
         </div>
 
-        <div className="row">
-          <div className="col-12">
-            {this.state.error
-              ? <p className="text-red text-center">Please fill out the entire form</p>
-              : <p className="d-none"></p>
-            }
-          </div>
-        </div>
         <div className="row">
           <div className="col-6">
             <p className="hvr-icon-wobble-horizontal" onClick={() => this.props.setView('catalog', {})}>
@@ -110,7 +113,6 @@ export default class CheckoutForm extends React.Component {
             <button className="btn btn-outline-dark btn-style" onClick={this.handleSubmit}>Place Order</button>
           </div>
         </div>
-
       </div>
     );
   }
