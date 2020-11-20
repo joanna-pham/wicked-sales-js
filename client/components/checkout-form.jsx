@@ -7,7 +7,8 @@ export default class CheckoutForm extends React.Component {
     this.state = {
       name: '',
       creditCard: '',
-      shippingAddress: ''
+      shippingAddress: '',
+      error: true
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -21,7 +22,15 @@ export default class CheckoutForm extends React.Component {
       shippingAddress: this.state.shippingAddress
     };
 
-    this.props.placeOrder(order);
+    if (this.state.name.length === 0) {
+      this.setState({ error: true });
+    } else if (this.state.creditCard.length === 0) {
+      this.setState({ error: true });
+    } else if (this.state.shippingAddress.length === 0) {
+      this.setState({ error: true });
+    } else {
+      this.props.placeOrder(order);
+    }
 
   }
 
@@ -32,7 +41,7 @@ export default class CheckoutForm extends React.Component {
 
     return (
       <div className="checkout-container container">
-        <Modal props={this.props.view}/>
+        <Modal props={this.props.view} />
         <div className="row m-3">
           <h2>Checkout</h2>
         </div>
@@ -80,17 +89,26 @@ export default class CheckoutForm extends React.Component {
                 required
               />
             </div>
-
           </form>
         </div>
 
-        <div className="d-flex m-4">
-          <p className="hvr-icon-wobble-horizontal" onClick={() => this.props.setView('catalog', {})}>
-            <i className="fas fa-arrow-left hvr-icon-wobble pr-2"></i> Continue Shopping
-          </p>
-          <span className="ml-auto">
-            <button className="ml-auto btn btn-outline-dark btn-style" onClick={this.handleSubmit}>Place Order</button>
-          </span>
+        <div className="row">
+          <div className="col-12">
+            {this.state.error
+              ? <p className="text-red text-center">Please fill out the entire form</p>
+              : <p className="d-none"></p>
+            }
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-6">
+            <p className="hvr-icon-wobble-horizontal" onClick={() => this.props.setView('catalog', {})}>
+              <i className="fas fa-arrow-left hvr-icon-wobble pr-2"></i> Continue Shopping
+            </p>
+          </div>
+          <div className="col-6 d-flex justify-content-end">
+            <button className="btn btn-outline-dark btn-style" onClick={this.handleSubmit}>Place Order</button>
+          </div>
         </div>
 
       </div>

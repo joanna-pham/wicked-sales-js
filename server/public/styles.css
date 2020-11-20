@@ -25,6 +25,10 @@ textarea {
   text-align: center;
 }
 
+.text-red{
+  color: red;
+}
+
 .icon-style{
   width: 5vh;
 }
@@ -94,7 +98,12 @@ textarea {
 
 .btn-style {
   border-radius: 12px;
-  background-color: #D9D9D9 !important;
+  background-color: #63a088 !important;
+  color: #283D3B;
+}
+
+.btn-style:hover{
+  color: white;
 }
 
 .error-message{
@@ -235,6 +244,7 @@ textarea {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
+
 
 @media screen and (max-width:900px){
 .header{

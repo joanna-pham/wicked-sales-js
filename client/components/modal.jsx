@@ -8,29 +8,7 @@ export default class Modal extends React.Component {
       message: '',
       view: ''
     };
-    // this.handleModal = this.handleModal.bind(this)
-    // this.handleClick = this.handleClick.bind(this)
   }
-
-  // componentDidMount(){
-  //   this.handleModal()
-  // }
-
-  // handleModal() {
-  //   if (this.props.view === 'checkout') {
-  //     this.setState({
-  //       message: 'This website is for DEMO purposes only. Please do not enter in personal information such as credit card or shipping address.',
-  //     })
-  //   } else if (this.props.view === 'catalog') {
-  //     this.setState({
-  //       message: 'This website is for DEMO purposes only. It is not a functioning shop.',
-  //     })
-  //   }
-  // }
-
-  // handleClick() {
-  //   this.setState({ showModal: false });
-  // }
 
   render() {
 
@@ -46,7 +24,7 @@ export default class Modal extends React.Component {
                 <p>This website is for DEMO purposes only. It is not a functioning shop. Please do not enter in personal information such as credit card or shipping address.</p>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-info" onClick={() => this.setState({ showModal: false })}>I Understand</button>
+                <button type="button" className="btn btn-style" onClick={() => this.setState({ showModal: false })}>I Understand</button>
               </div>
             </div>
           </div>
