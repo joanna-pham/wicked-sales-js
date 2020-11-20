@@ -13,6 +13,10 @@ textarea {
   width: 900px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .ep-point{
   width: 8%;
 }
@@ -36,11 +40,15 @@ textarea {
 
 .hero-img {
   background-image: url("./images/game-logo.png");
-  height: 95vh;
+  height: 100vh;
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 2px;
+  width: 100%
 }
 
 .logo-img{
@@ -62,7 +70,7 @@ textarea {
 }
 
 .product-item-container{
-  height: 600px;
+  height: 620px;
   background-color: white;
 }
 
@@ -99,6 +107,7 @@ textarea {
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   position: relative;
+  cursor: pointer;
 }
 .hvr-outline-in:before {
   pointer-events: none;
@@ -137,6 +146,7 @@ textarea {
   transition-property: transform;
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
+  cursor: pointer;
 }
 .hvr-icon-spin:hover .hvr-icon, .hvr-icon-spin:focus .hvr-icon, .hvr-icon-spin:active .hvr-icon {
   -webkit-transform: rotate(360deg);
@@ -203,6 +213,7 @@ textarea {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  cursor: pointer;
 }
 .hvr-icon-wobble-horizontal .hvr-icon-wobble {
   -webkit-transform: translateZ(0);
@@ -235,24 +246,27 @@ textarea {
 }
 }
 
-@media screen and (max-width:850px){
-.header{
-  background-size: 700px;
-  height: 50vh
-}
-}
-
 @media screen and (max-width:810px){
 h5{
   font-size: 1.00rem;
 }
 }
 
-@media screen and (max-width:480px){
-.header{
-  background-size: 500px;
+
+@media screen and (max-width:768px){
+.hero-img{
+  background-size: 900px;
   height: 50vh
 }
+}
+
+
+
+@media screen and (max-width:480px){
+/* .header{
+  background-size: 500px;
+  height: 50vh
+} */
 .product-item-container{
   height: 620px;
   display: flex;
@@ -273,7 +287,7 @@ textarea {
 }
 
 @media screen and (max-width:375px){
-.header{
+.hero-img{
   background-size: 500px;
   height: 50vh
 }
@@ -297,11 +311,11 @@ textarea {
 }
 
 @media screen and (max-width:320px){
-.header{
+/* .header{
   background-size: 350px;
   margin-top: 50px;
   height: 50vh
-}
+} */
 .product-item-container{
   height: 620px;
   display: flex;

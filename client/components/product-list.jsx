@@ -27,7 +27,7 @@ export default class ProductList extends React.Component {
   render() {
     const productsArray = this.state.products.map((product, index) =>
 
-      <div className="col-md-4" key={index}>
+      <div className="col-md-6 col-sm-12 col-lg-4" key={index}>
         <ProductListItem
           onClick={() => this.handleClick(product.productId)}
           product={product}
@@ -38,7 +38,7 @@ export default class ProductList extends React.Component {
 
     return (
       <div className="main-container">
-        <div className="row header hero-img">
+        <div className="header hero-img">
         </div>
         <Modal props={this.props.view} />
         <div className="row d-flex justify-content-center m-3">
