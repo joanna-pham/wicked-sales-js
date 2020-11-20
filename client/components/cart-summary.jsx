@@ -21,7 +21,7 @@ export default class CartSummary extends React.Component {
         <div className="d-flex justify-content-center align-items-center text-center">
           <div>
             <img src="/images/empty-heart.png" alt="pixel heart"></img>
-            <h3 className="m-1">Uh Oh! There are currently no items in your cart. Add a product to fuel your gaming addiction!</h3>
+            <h3 className="m-1">Uh Oh! There are currently no items in your cart. Add a product to replenish your health!</h3>
           </div>
         </div>
 
