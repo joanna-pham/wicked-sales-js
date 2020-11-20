@@ -29,24 +29,34 @@ export default class CartSummary extends React.Component {
     } else {
       return (
         <div className="container">
-          <div className="m-3 hvr-icon-wobble-horizontal">
-            <div onClick={() => this.props.setView('catalog', {})}>
+
+          <div className="row">
+            <div className="col-12 hvr-icon-wobble-horizontal mt-3" onClick={() => this.props.setView('catalog', {})}>
               <p>
                 <i className="fas fa-arrow-left hvr-icon-wobble pr-2"></i> Back to Catalog
               </p>
             </div>
-            <div className="m-2">
+          </div>
+
+          <div className="row">
+            <div className="col-12">
               <h2>My Cart</h2>
             </div>
           </div>
-          <div className="d-flex justify-content-center flex-wrap summary-container m-auto">
-            {summaryArray}
+
+          <div className="row">
+            <div className="col-12 d-flex justify-content-center flex-wrap summary-container m-auto">
+              {summaryArray}
+            </div>
           </div>
-          <div className="d-flex">
-            <h3>{`Item Total: $${priceCheck}`}</h3>
-            <span className="ml-auto">
+
+          <div className="row mb-5">
+            <div className="col">
+              <h3>{`Item Total: $${priceCheck}`}</h3>
+            </div>
+            <div className="col d-flex justify-content-end">
               <button className="btn btn-outline-dark btn-style" onClick={() => this.props.setView('checkout', {})}>Checkout</button>
-            </span>
+            </div>
           </div>
         </div>
       );

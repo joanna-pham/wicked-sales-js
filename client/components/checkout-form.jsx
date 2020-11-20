@@ -10,7 +10,6 @@ export default class CheckoutForm extends React.Component {
       shippingAddress: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.totalPrice = this.totalPrice.bind(this);
   }
 
   handleSubmit(e) {
@@ -26,17 +25,10 @@ export default class CheckoutForm extends React.Component {
 
   }
 
-  totalPrice() {
-    const items = this.props.cart;
-    let totalPrice = 0;
-    items.forEach(item => {
-      totalPrice += item.price;
-      totalPrice = (totalPrice / 100).toFixed(2);
-    });
-    return totalPrice;
-  }
-
   render() {
+    const price = this.props.cart.filter(item => item.price);
+    const totalPrice = price.reduce((prevPrice, nextPrice) => prevPrice + nextPrice.price, 0);
+    const priceCheck = (totalPrice / 100).toFixed(2);
 
     return (
       <div className="checkout-container container">
@@ -45,7 +37,7 @@ export default class CheckoutForm extends React.Component {
           <h2>Checkout</h2>
         </div>
         <div className="m-3">
-          <h4>Order Total: ${this.totalPrice()}</h4>
+          <h4>Order Total: ${priceCheck}</h4>
         </div>
         <div className="row d-flex justify-content-center align-items-center m-auto">
           <form onSubmit={this.handleSubmit}>
@@ -58,6 +50,7 @@ export default class CheckoutForm extends React.Component {
                 value={this.state.name}
                 onChange={() => this.setState({ name: event.target.value })}
                 key="name"
+                required
               />
             </div>
 
@@ -70,6 +63,7 @@ export default class CheckoutForm extends React.Component {
                 value={this.state.creditCard}
                 onChange={() => this.setState({ creditCard: event.target.value })}
                 key="card"
+                required
               />
             </div>
 
@@ -83,6 +77,7 @@ export default class CheckoutForm extends React.Component {
                 onChange={() => this.setState({ shippingAddress: event.target.value })}
                 rows="6"
                 key="address"
+                required
               />
             </div>
 
